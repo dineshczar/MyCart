@@ -11,28 +11,27 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class homeadapter extends RecyclerView.Adapter {
-    List<homemodel> mProducts;
+public class wishlistadapter extends RecyclerView.Adapter {
+    List<WishlistProduct> mProducts;
     Context mContext;
     public static final int LOADING_ITEM = 0;
     public static final int PRODUCT_ITEM = 1;
     int LoadingItemPos;
     public boolean loading = false;
 
-    public homeadapter(Context mContext, List<homemodel> homemodelArrayList) {
-        mProducts = new ArrayList<>();
+    public wishlistadapter(Context mContext, List<WishlistProduct> products) {
+        mProducts = products;
         this.mContext = mContext;
-        mProducts=homemodelArrayList;
     }
+
 
 
 
     @Override
     public int getItemViewType(int position) {
-        homemodel currentProduct = mProducts.get(position);
+        WishlistProduct currentProduct = mProducts.get(position);
 
             return PRODUCT_ITEM;
 
@@ -43,8 +42,8 @@ public class homeadapter extends RecyclerView.Adapter {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         //Check which view has to be populated
 
-            View row = inflater.inflate(R.layout.homeshoeitem, parent, false);
-            return new ProductHolder(row);
+            View row = inflater.inflate(R.layout.wishlistitem, parent, false);
+            return new wishlistadapter.ProductHolder(row);
 
 
     }
@@ -52,29 +51,16 @@ public class homeadapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         //get current product
-        final homemodel mHomemodell = mProducts.get(position);
-        if (holder instanceof ProductHolder) {
-            ProductHolder productHolder = (ProductHolder) holder;
+        final WishlistProduct currentProduct = mProducts.get(position);
+        if (holder instanceof wishlistadapter.ProductHolder) {
+            wishlistadapter.ProductHolder productHolder = (wishlistadapter.ProductHolder) holder;
             //bind products information with view
-            Picasso.with(mContext).load(mHomemodell.getImgname()).into(productHolder.imageViewProductThumb);
-            productHolder.textViewProductName.setText(mHomemodell.getShoeName());
-            productHolder.textViewProductPrice.setText(mHomemodell.getShoePrice());
-            productHolder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // user selected product now you can show details of that product
-                    //Toast.makeText(mContext, "Selected "+currentProduct.getProductName(), Toast.LENGTH_SHORT).show();
-                   callClass(mHomemodell);
-                }
-            });
+            Picasso.with(mContext).load(currentProduct.getImgname()).into(productHolder.imageViewProductThumb);
+            productHolder.textViewProductName.setText(currentProduct.getShoeName());
+            productHolder.textViewProductPrice.setText(currentProduct.getShoePrice());
+
+
         }
-
-    }
-
-    private void callClass(homemodel mHomemodell) {
-       /* Intent mIntent=new Intent(mContext, shoedetailpage.class);
-        mIntent.putExtra("ShoeModel",  mHomemodell);
-        mContext.startActivity(mIntent);*/
     }
 
     @Override
@@ -94,9 +80,9 @@ public class homeadapter extends RecyclerView.Adapter {
             textViewProductName = itemView.findViewById(R.id.textViewProductName);
             textViewProductPrice = itemView.findViewById(R.id.textViewProductPrice);
 
-
         }
     }
+
     //holds view of loading item
     private class LoadingHolder extends RecyclerView.ViewHolder {
         public LoadingHolder(View itemView) {
@@ -106,5 +92,8 @@ public class homeadapter extends RecyclerView.Adapter {
 
 
 
-    }
+
+
+
+}
 
