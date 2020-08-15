@@ -65,6 +65,9 @@ public class shoedetailpage extends AppCompatActivity implements Serializable, V
                 Toast.makeText(this,"Product Added To WishList Successfully",Toast.LENGTH_SHORT).show();
                 break;
 
+
+
+                
                 case R.id.buynow:
                     try {
                         startActivity(new Intent(Intent.ACTION_VIEW,
