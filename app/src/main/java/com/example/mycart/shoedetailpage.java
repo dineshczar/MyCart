@@ -14,8 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.mycart.pojoClasses.WishlistProduct;
-import com.mycart.pojoClasses.homemodel;
+
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
