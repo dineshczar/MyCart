@@ -72,7 +72,7 @@ public class shoedetailpage extends AppCompatActivity implements Serializable, V
 
 
 
-                
+
                 case R.id.buynow:
                     try {
                         startActivity(new Intent(Intent.ACTION_VIEW,
