@@ -67,6 +67,11 @@ public class shoedetailpage extends AppCompatActivity implements Serializable, V
 
 
 
+
+
+
+
+
                 
                 case R.id.buynow:
                     try {
