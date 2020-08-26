@@ -9,11 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight=".55">
+
 <ImageView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/d"
-    tools:ignore="ContentDescription" />
+    android:src="@mipmap/ss"
+    />
     </LinearLayout>
 
 <LinearLayout

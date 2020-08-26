@@ -17,6 +17,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mycart.utils.PrefsKeys;
+import com.example.mycart.utils.PrefsManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -47,7 +49,7 @@ public class  Login extends Activity {
         progressDialog = new ProgressDialog(this);
         mauth = FirebaseAuth.getInstance();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("users");
-
+       new  PrefsManager(this).saveBoolean(PrefsKeys.LoginStatue, true);
     }
 
     //----SHOWING ALERT DIALOG FOR EXITING THE APP----

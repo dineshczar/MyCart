@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.example.mycart.utils.Users;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
@@ -23,7 +24,7 @@ public class shoedetailpage extends AppCompatActivity implements Serializable, V
     TextView mTextView,tvProductDetailPrice;
     ImageView mImageView;
     Button mButtonbtnaddtocart,buynow;
-    private homemodel currentProduct;
+    private Users currentProduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +40,10 @@ public class shoedetailpage extends AppCompatActivity implements Serializable, V
         mButtonbtnaddtocart.setOnClickListener(this);
         buynow.setOnClickListener(this);
         Intent i = getIntent();
-        currentProduct = (homemodel)i.getSerializableExtra("ShoeModel");
-        Picasso.with(this).load(currentProduct.getImgname()).into(mImageView);
-        mTextView.setText(currentProduct.getShoeName());
-        tvProductDetailPrice.setText(""+currentProduct.getShoePrice());
+        currentProduct = (Users) i.getSerializableExtra("ShoeModel");
+        Picasso.with(this).load(currentProduct.getState()).into(mImageView);
+        mTextView.setText(currentProduct.getName());
+        tvProductDetailPrice.setText(""+currentProduct.getCity());
         // mButton=(Button)findViewById(R.id.btnLogin);
        /* mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,9 +59,9 @@ public class shoedetailpage extends AppCompatActivity implements Serializable, V
         switch (view.getId()){
 
             case R.id.btnaddtocart:
-                WishlistProduct product = new WishlistProduct(currentProduct.getImgname(),
-                        currentProduct.getShoeName(),
-                        currentProduct.getShoePrice());
+                WishlistProduct product = new WishlistProduct(currentProduct.getState(),
+                        currentProduct.getName(),
+                        currentProduct.getCity());
                 Utility.products.add(product);
                 Toast.makeText(this,"Product Added To WishList Successfully",Toast.LENGTH_SHORT).show();
                 break;

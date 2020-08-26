@@ -3,12 +3,12 @@ package com.example.mycart;
 import java.io.Serializable;
 
 public class WishlistProduct implements Serializable {
-    private int imgname;
+    private String imgname;
     private String shoeName;
     private String shoePrice;
 
 
-    public WishlistProduct(int imageResourceId, String productName, String productPrice) {
+    public WishlistProduct(String imageResourceId, String productName, String productPrice) {
         this.imgname = imageResourceId;
         this.shoeName = productName;
         this.shoePrice = productPrice;
@@ -19,7 +19,7 @@ public class WishlistProduct implements Serializable {
 
 
 
-    public int getImgname() {
+    public String getImgname() {
         return imgname;
     }
 

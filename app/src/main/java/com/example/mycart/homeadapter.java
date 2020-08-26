@@ -1,6 +1,7 @@
 package com.example.mycart;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,20 +10,21 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mycart.utils.Users;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class homeadapter extends RecyclerView.Adapter {
-    List<homemodel> mProducts;
+    List<Users> mProducts;
     Context mContext;
     public static final int LOADING_ITEM = 0;
     public static final int PRODUCT_ITEM = 1;
     int LoadingItemPos;
     public boolean loading = false;
 
-    public homeadapter(Context mContext, List<homemodel> homemodelArrayList) {
+    public homeadapter(Context mContext, List<Users> homemodelArrayList) {
         mProducts = new ArrayList<>();
         this.mContext = mContext;
         mProducts=homemodelArrayList;
@@ -32,7 +34,7 @@ public class homeadapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemViewType(int position) {
-        homemodel currentProduct = mProducts.get(position);
+        Users currentProduct = mProducts.get(position);
 
             return PRODUCT_ITEM;
 
@@ -52,13 +54,13 @@ public class homeadapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         //get current product
-        final homemodel mHomemodell = mProducts.get(position);
+        final Users mHomemodell = mProducts.get(position);
         if (holder instanceof ProductHolder) {
             ProductHolder productHolder = (ProductHolder) holder;
             //bind products information with view
-            Picasso.with(mContext).load(mHomemodell.getImgname()).into(productHolder.imageViewProductThumb);
-            productHolder.textViewProductName.setText(mHomemodell.getShoeName());
-            productHolder.textViewProductPrice.setText(mHomemodell.getShoePrice());
+            Picasso.with(mContext).load(mHomemodell.getState()).into(productHolder.imageViewProductThumb);
+            productHolder.textViewProductName.setText(mHomemodell.getName());
+            productHolder.textViewProductPrice.setText(mHomemodell.getCity());
             productHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -71,10 +73,10 @@ public class homeadapter extends RecyclerView.Adapter {
 
     }
 
-    private void callClass(homemodel mHomemodell) {
-       /* Intent mIntent=new Intent(mContext, shoedetailpage.class);
+    private void callClass(Users mHomemodell) {
+        Intent mIntent=new Intent(mContext, shoedetailpage.class);
         mIntent.putExtra("ShoeModel",  mHomemodell);
-        mContext.startActivity(mIntent);*/
+        mContext.startActivity(mIntent);
     }
 
     @Override

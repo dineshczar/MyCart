@@ -25,7 +25,7 @@ public class WishList extends AppCompatActivity {
         setContentView(R.layout.wishlist);
         RecyclerView recyclerViewProducts = findViewById(R.id.recyclerViewProducts);
         mButton = findViewById(R.id.pay);
-        //wishlistadapter = new wishlistadapter(this,Utility.products);
+        wishlistadapter = new wishlistadapter(this,Utility.products);
         recyclerViewProducts.setLayoutManager(new LinearLayoutManager(this
                 , LinearLayoutManager.VERTICAL, false));
         recyclerViewProducts.setAdapter(wishlistadapter);
@@ -46,5 +46,3 @@ public class WishList extends AppCompatActivity {
 
     }
 }
-
-

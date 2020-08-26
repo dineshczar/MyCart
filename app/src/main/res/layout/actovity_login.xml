@@ -26,7 +26,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="Email"
-            android:maxLength="10"
             android:maxLines="1"
             android:padding="10dp"
             android:textColor="@color/colorPrimary"
@@ -48,6 +47,7 @@
             android:textColor="@color/colorPrimary" />
 
         <Button
+            android:onClick="buttonIsClicked"
             android:id="@+id/buttonSign"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,6 +60,7 @@
 
 
         <TextView
+            android:onClick="buttonIsClicked"
             android:id="@+id/buttonRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

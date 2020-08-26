@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "998044086654",
+    "firebase_url": "https://shoe-cart-de201.firebaseio.com",
+    "project_id": "shoe-cart-de201",
+    "storage_bucket": "shoe-cart-de201.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998044086654:android:af40c9bcfd06ec50e9c32f",
+        "android_client_info": {
+          "package_name": "com.example.mycart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "998044086654-rg1kjhmdui9iq6imgv0hih5hnoj7bi72.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDISRBt1AK_CZBX9W6t3zzljabj6pQsGBo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "998044086654-rg1kjhmdui9iq6imgv0hih5hnoj7bi72.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
