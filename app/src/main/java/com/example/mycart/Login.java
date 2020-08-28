@@ -30,7 +30,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ *
+ * Login Class for the application
+ * Authentication using firebase authentication using email and password.
+ *
+ */
 public class  Login extends Activity {
 
     ProgressDialog progressDialog;
@@ -53,6 +58,11 @@ public class  Login extends Activity {
     }
 
     //----SHOWING ALERT DIALOG FOR EXITING THE APP----
+
+    /**
+     * onBackPressed() method to logout when you press the back button
+     * @params none
+     */
     @Override
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(
@@ -99,6 +109,11 @@ public class  Login extends Activity {
         }
     }
 
+    /**
+     * Method name login_user utilise the firebase authentication method for authenticating the email and password
+     * @param email
+     * @param password
+     */
     private void login_user(String email, String password) {
 
         //---SIGN IN FOR THE AUTHENTICATE EMAIL-----

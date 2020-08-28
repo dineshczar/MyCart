@@ -106,7 +106,4 @@ public class homeadapter extends RecyclerView.Adapter {
         }
     }
 
-
-
     }
-

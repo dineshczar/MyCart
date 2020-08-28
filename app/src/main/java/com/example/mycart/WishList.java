@@ -13,6 +13,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+/**
+ * This class is to add products to my wishlist page.
+ * fetch the products to my wishlist page.
+ *
+ */
 public class WishList extends AppCompatActivity {
     wishlistadapter wishlistadapter;
     Button mButton;
@@ -33,8 +39,7 @@ public class WishList extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("https://www.paypal.com/ca/home")));
+                    Toast.makeText(WishList.this, "Please go to Product detail page and order from there.",  Toast.LENGTH_LONG).show();
                 } catch (ActivityNotFoundException e) {
                     Toast.makeText(WishList.this, "No application can handle this request." + " Please install a webbrowser",  Toast.LENGTH_LONG).show();
                     e.printStackTrace();

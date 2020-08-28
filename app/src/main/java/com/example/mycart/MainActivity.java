@@ -27,13 +27,21 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+
+/**
+ * <h1> Main Home Page</h1>
+ * THis class has the functionality to homepage with the products enabled in the firebase database,
+ * and fetch all the products online.
+ *
+ */
 public class MainActivity extends Activity {
     RecyclerView shoeGridview;
     private homeadapter mAdapter;
     DatabaseReference mDatabaseReference;
     List<Users> homemodelArrayList = new ArrayList<>();
     int[] staticimages = {R.mipmap.formal, R.mipmap.addas, R.mipmap.newshoe, R.mipmap.sneekers};
-Button wishlist;
+    Button wishlist;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +60,7 @@ Button wishlist;
         wishlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Utility.products.size()>0) {
+                if (Utility.products.size() > 0) {
                     Intent mIntent = new Intent(MainActivity.this, WishList.class);
                     startActivity(mIntent);
                 }
@@ -60,6 +68,10 @@ Button wishlist;
         });
     }
 
+    /**
+     * loadData() is the method for fetching the product details
+     * @params none
+     */
     private void loadData() {
 
         mDatabaseReference.addValueEventListener(new ValueEventListener() {
@@ -85,9 +97,10 @@ Button wishlist;
 
                     // }
                 }
-                mAdapter = new homeadapter(MainActivity.this,homemodelArrayList);
+                mAdapter = new homeadapter(MainActivity.this, homemodelArrayList);
                 shoeGridview.setAdapter(mAdapter);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -106,7 +119,7 @@ Button wishlist;
                     public void onClick(DialogInterface dialog, int which) {
                         //aemPrinter = null;
                         finish();
-                        Intent mIntent=new Intent(MainActivity.this, Login.class);
+                        Intent mIntent = new Intent(MainActivity.this, Login.class);
                         startActivity(mIntent);
                     }
                 }).setNegativeButton(Commonparams.NO, new DialogInterface.OnClickListener() {
