@@ -50,7 +50,7 @@ public class MainActivity extends Activity {
         wishlist = findViewById(R.id.wishlist);
         mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
         loadData();
-        @SuppressLint("WrongConstant") GridLayoutManager gridLayoutManager = new GridLayoutManager(this,
+        @SuppressLint("WrongConstants") GridLayoutManager gridLayoutManager = new GridLayoutManager(this,
                 2,//span count no of items in single row
                 GridLayoutManager.VERTICAL,//Orientation
                 false);//reverse scrolling of recyclerview
